@@ -154,12 +154,14 @@ async function queryAtsServer() {
 // ====== EMBED ======
 function buildEmbed(current, reason) {
   const now = Date.now();
+  const embedColor = current.online ? 0x57F287 : 0xED4245;
 
   const statusText = current.online
     ? `🟢 Online — **${current.players}/${current.maxplayers || "?"}** players`
     : `🔴 Offline`;
 
   return {
+    color: embedColor,
     title: current.name || SERVER_LABEL,
     description: statusText,
     fields: [
